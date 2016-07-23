@@ -48,7 +48,16 @@
       </div>
     </nav>
     
-    <div id="input">
+    <div id="input1">
+        <ol>
+        <li id="text1"></li>
+        <li></li>
+        <li></li>
+        <li class="other"></li>     
+        </ol>
+    </div>
+    
+    <div id="input2">
         <ol>
         <li id="text1"></li>
         <li></li>
@@ -76,11 +85,15 @@
         <script src="js/main.js"></script>
         <script>
             $(document).ready(function() {
-                $("li").text("This is repeating text");
-                $(".other").html("This text <em>appears</em> with a class");
-                $("#text1").text("This text <em>appears</em> with a class");
-                $("#html-output").text($("#input").html());
-                $("#text-output").text($("#input").text());
+                //$("li").text("This is repeating text");
+                //$(".other").html("This text <em>appears</em> with a class");
+                //$("#text1").text("This text <em>appears</em> with a class");
+                //$("#html-output").text($("#input").html());
+                //$("#text-output").text($("#input").text());
+                $("#input1 li:first").append("addon");
+                $("#input2 ol li").first().html("<em>First</em>");
+                $("#input2 li").last().html("<em>Last</em>");
+                $("#input1 li:gt(2)").append("greater than three");
             });
         </script>
     </body>
