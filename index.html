@@ -47,16 +47,24 @@
         </div><!--/.navbar-collapse -->
       </div>
     </nav>
-
-<ol>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li class="other"></li>     
-</ol>
+    
+    <div id="input">
+        <ol>
+        <li id="text1"></li>
+        <li></li>
+        <li></li>
+        <li class="other"></li>     
+        </ol>
+    </div>
+    
+    <p>The HTML</p>
+    <pre id="html-output"></pre>
+    
+    <p>The TEXT</p>
+    <pre id="text-output"></pre>    
 
       <footer>
-        <p>&copy; Company 2015</p>
+        <p>&copy; Gareth Thomas 2016</p>
       </footer>
     </div> <!-- /container -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -69,7 +77,10 @@
         <script>
             $(document).ready(function() {
                 $("li").text("This is repeating text");
-                $(".other").html("This text appears with a class");
+                $(".other").html("This text <em>appears</em> with a class");
+                $("#text1").text("This text <em>appears</em> with a class");
+                $("#html-output").text($("#input").html());
+                $("#text-output").text($("#input").text());
             });
         </script>
     </body>
