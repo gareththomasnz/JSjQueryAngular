@@ -48,7 +48,7 @@
       </div>
     </nav>
     
-    <div id="input1">
+<!--    <div id="input1">
         <ol>
         <li id="text1"></li>
         <li></li>
@@ -64,13 +64,27 @@
         <li></li>
         <li class="other"></li>     
         </ol>
-    </div>
+    </div>-->
+
+<!--    <button type="button" id="add-new-row" class="btn btn-default btn-lg">Default</button>
+    <p></p>
+    <div id="output">
+        
+    </div>-->
     
-    <p>The HTML</p>
+<!--    <p>The HTML</p>
     <pre id="html-output"></pre>
     
     <p>The TEXT</p>
-    <pre id="text-output"></pre>    
+    <pre id="text-output"></pre>  -->
+    <div class="row">
+        <div class="shape rectangle"></div>
+        <div class="shape circle"></div>
+        <div class="shape square"></div>         
+    </div>   
+    <div class="row">
+        <button type="button" id="show-all" class="btn btn-default btn-lg">Show</button>
+    </div>    
 
       <footer>
         <p>&copy; Gareth Thomas 2016</p>
@@ -90,10 +104,23 @@
                 //$("#text1").text("This text <em>appears</em> with a class");
                 //$("#html-output").text($("#input").html());
                 //$("#text-output").text($("#input").text());
-                $("#input1 li:first").append("addon");
-                $("#input2 ol li").first().html("<em>First</em>");
-                $("#input2 li").last().html("<em>Last</em>");
-                $("#input1 li:gt(2)").append("greater than three");
+                //$("#input1 li:first").append("addon");
+                //$("#input2 ol li").first().html("<em>First</em>");
+                //$("#input2 li").last().html("<em>Last</em>");
+                //$("#input1 li:gt(2)").append("greater than three");
+                //var count = 0;
+                //$("#add-new-row").click(function(){
+                //    count++;
+                //    $("#output").append("<p>This is a new row " + count + "</p>");
+                //    });
+                $(".shape").click(function(e){
+                    $(e.target).hide();
+                    
+                     });
+                    $("#show-all").click(function(){
+                        $(".shape").show(1000, "linear");
+                    });
+                   
             });
         </script>
     </body>
