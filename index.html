@@ -86,7 +86,7 @@
         <button type="button" id="show-all" class="btn btn-default btn-lg">Show</button>
     </div>   --> 
 
-    <div>
+<!--    <div>
         <select id="selected-shape">
             <option value="circle">Circle</option>
             <option value="square">Square</option>
@@ -98,8 +98,19 @@
             <option value="blue">Blue</option>
         </select>
         <button type="button" id="add-shape" class="btn btn-default btn-md">Add Shape</button>
+    </div>-->
+<!--    <div id="output"></div>-->
+
+
+    <p>Which do you like?</p>
+    <div>
+        <input type="checkbox" /><span>Apples</span>
+        <input type="checkbox" /><span>Bananas</span>
+        <input type="checkbox" /><span>Oranges</span>
+        <input type="checkbox" /><span>Pears</span>
+        <input type="checkbox" /><span>WaterMelons</span>        
     </div>
-    <div id="output"></div>
+    <div id="output" class="linebreak-items"></div>
       <footer>
         <p>&copy; Gareth Thomas 2016</p>
       </footer>
@@ -135,15 +146,22 @@
                 //        $(".shape").show(1000, "linear");
                 //    });
                 //
-                var count = 0;
+                //var count = 0;
+                //
+                //$("#add-shape").click(function(){
+                //   $("#output").append("<div><span>" + (++count) + "</span></div>");
+                //   $("#output div:last")
+                //        .addClass("shape")
+                //        .addClass($("#selected-shape").val())
+                //        .addClass($("#selected-color").val());
+                //});
                 
-                $("#add-shape").click(function(){
-                   $("#output").append("<div><span>" + (++count) + "</span></div>");
-                   $("#output div:last")
-                        .addClass("shape")
-                        .addClass($("#selected-shape").val())
-                        .addClass($("#selected-color").val());
-                });
+                $("[type=checkbox]").change(function(){
+                        //alert("changed!");
+                        $("#output").html("");
+                        $("#output").append($(":checked").next().clone());
+                    });
+                
             });
         </script>
     </body>

@@ -67,10 +67,11 @@ body{
 }
 
 
-
-
-
-
+.linebreak-items{
+        display: inline;
+        content: '\A';
+        white-space: pre;        
+}
 
 
 
