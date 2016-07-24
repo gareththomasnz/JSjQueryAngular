@@ -159,7 +159,7 @@
                 $("[type=checkbox]").change(function(){
                         //alert("changed!");
                         $("#output").html("");
-                        $("#output").append($(":checked").next().clone());
+                        $("#output").append($(":checked").next().clone().append("<p></p>"));
                     });
                 
             });
