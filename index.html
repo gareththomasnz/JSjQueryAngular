@@ -77,15 +77,29 @@
     
     <p>The TEXT</p>
     <pre id="text-output"></pre>  -->
-    <div class="row">
+<!--    <div class="row">
         <div class="shape rectangle"></div>
         <div class="shape circle"></div>
         <div class="shape square"></div>         
     </div>   
     <div class="row">
         <button type="button" id="show-all" class="btn btn-default btn-lg">Show</button>
-    </div>    
+    </div>   --> 
 
+    <div>
+        <select id="selected-shape">
+            <option value="circle">Circle</option>
+            <option value="square">Square</option>
+        </select>
+        <select id="selected-color">
+            <option value="red">Red</option>
+            <option value="yellow">Yellow</option>
+            <option value="green">Green</option>
+            <option value="blue">Blue</option>
+        </select>
+        <button type="button" id="add-shape" class="btn btn-default btn-md">Add Shape</button>
+    </div>
+    <div id="output"></div>
       <footer>
         <p>&copy; Gareth Thomas 2016</p>
       </footer>
@@ -113,14 +127,23 @@
                 //    count++;
                 //    $("#output").append("<p>This is a new row " + count + "</p>");
                 //    });
-                $(".shape").click(function(e){
-                    $(e.target).hide();
-                    
-                     });
-                    $("#show-all").click(function(){
-                        $(".shape").show(1000, "linear");
-                    });
-                   
+                //$(".shape").click(function(e){
+                //    $(e.target).hide();
+                //    
+                //     });
+                //    $("#show-all").click(function(){
+                //        $(".shape").show(1000, "linear");
+                //    });
+                //
+                var count = 0;
+                
+                $("#add-shape").click(function(){
+                   $("#output").append("<div><span>" + (++count) + "</span></div>");
+                   $("#output div:last")
+                        .addClass("shape")
+                        .addClass($("#selected-shape").val())
+                        .addClass($("#selected-color").val());
+                });
             });
         </script>
     </body>
