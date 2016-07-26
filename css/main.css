@@ -72,6 +72,25 @@ body{
         content: '\A';
         white-space: pre;        
 }
+#output{
+        display: block;
+        float: left;
+        height: 30px;
+        width: auto;
+}
 
-
+#canvas{
+        display: block;
+        height: 80%;
+        width: auto;
+        float: left;
+        position: absolute;
+        top: 50px;
+        bottom: 50px;
+        left: 50px;
+        right: 50px;
+        margin: auto;
+        background-color: #ccc;
+        border: 2px solid #000;
+}
 
