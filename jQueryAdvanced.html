@@ -25,9 +25,19 @@
     <body>
 
     
-    <div id="output"></div>
-    <div id="canvas"></div>
-    
+<!--    <div id="output"></div>
+    <div id="canvas"></div>-->
+
+        <div class="cursor "></div>
+        
+        <div>
+            <button type="button" class="btn btn-primary" id="record">Record</button>
+            <button type="button" class="btn btn-success" id="play">Playback</button>
+        </div>
+        
+        <div>
+            <img src="img/jquery.png"/>
+        </div>
 
     </div> <!-- /container -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -38,27 +48,57 @@
 
         <script src="js/main.js"></script>
         <script>
+  
+                var recording = {
+                    data : [],
+                    recordMove : function(pageX, pageY){
+                        recording.data.push({x : pageX, y : pageY});
+                    },
+                    currentMove : 0,
+                    play : function() {
+                        if(recording.currentMove < recording.data.length){
+                            var coordinates = recording.data[recording.currentMove];
+                            $(".cursor").css({
+                                top : coordinates.y,
+                                left : coordinates.x
+                                }).show();
+                            recording.currentMove++;
+                            setTimeout(recording.play, 10);
+                        }
+                    }
+                };
+
             $(document).ready(function() {
-                var startX = 0; var startY = 0; var endX = 0; var endY = 0;
-                $("#canvas").click(function(e){
-                   var x = e.pageX; y = e.pageY;
-                   $("#output").html("Left" + x + "Top" + y);
-                   if((startX === 0) && (startY === 0)){
-                    startX = x; startY = y;
-                   } else {
-                    endX = x; endY = y;
-                    var xCoordinate = (startX < endX) ? startX : endX;
-                    var yCoordinate = (startY < endY) ? startY : endY;
-                    var width = (startX < endX) ? (endX - startX) : (startX - endX);
-                    var height = (startY < endY) ? (endY - startY) : (startY - endY);
-                    var div = $("<div></div>").css("left", xCoordinate).css("top", yCoordinate)
-                    .width(width).height(height)
-                    .css("position","fixed").css("background-color", "#006").css("border","1px solid #999");
-                    $("#canvas").append(div);
-                    startX = 0; startY = 0;
-                   }
-                });
-                
+                //var startX = 0; var startY = 0; var endX = 0; var endY = 0;
+                //$("#canvas").click(function(e){
+                //   var x = e.pageX; y = e.pageY;
+                //   $("#output").html("Left" + x + "Top" + y);
+                //   if((startX === 0) && (startY === 0)){
+                //    startX = x; startY = y;
+                //   } else {
+                //    endX = x; endY = y;
+                //    var xCoordinate = (startX < endX) ? startX : endX;
+                //    var yCoordinate = (startY < endY) ? startY : endY;
+                //    var width = (startX < endX) ? (endX - startX) : (startX - endX);
+                //    var height = (startY < endY) ? (endY - startY) : (startY - endY);
+                //    var div = $("<div></div>").css("left", xCoordinate).css("top", yCoordinate)
+                //    .width(width).height(height)
+                //    .css("position","fixed").css("background-color", "#006").css("border","1px solid #999");
+                //    $("#canvas").append(div);
+                //    startX = 0; startY = 0;
+                //   }
+                //});
+                $("#record").click(function(){
+                    $(".cursor").hide();
+                    $(document).mousemove(function(e){
+                        //console.log("x: " + e.pageX + " Y: " + e.pageY);
+                        recording.recordMove(e.pageX, e.pageY);
+                        });
+                    });
+                $("#play").click(function(){
+                    $(document).off("mousemove");
+                    recording.play();
+                    });
             });
         </script>
     </body>

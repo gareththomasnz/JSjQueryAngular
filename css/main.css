@@ -93,4 +93,15 @@ body{
         background-color: #ccc;
         border: 2px solid #000;
 }
-
+.hidden{
+        display: none;
+}
+.cursor{
+        border-radius: 50%;
+        background: red;
+        width: 10px;
+        height: 10px;
+        position: fixed;
+        top: 0;
+        left: 0;
+}
