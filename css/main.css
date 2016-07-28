@@ -94,8 +94,9 @@ body{
         border: 2px solid #000;
 }
 .hidden{
-        display: none;
+        visibility: hidden;
 }
+
 .cursor{
         border-radius: 50%;
         background: red;
