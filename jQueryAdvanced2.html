@@ -41,6 +41,15 @@
     
     <input id="date-picker" type="text" style="width: 200px"/>
     
+     <br/><br/>
+     
+     <div class="animated">
+        I can use jQuery effects to say:
+        <br/><br/>
+        <button type="button" id="yes" class="btn btn-success">Success</button>
+        <button type="button" id="no" class="btn btn-danger">Danger</button>
+     </div>
+    
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script src="js/vendor/jquery-1.11.2.min.js"></script>
         <script src="jquery-ui-1.12.0/jquery-ui.js" type="text/javascript"></script>
@@ -49,7 +58,6 @@
 
         <script src="js/main.js"></script>
         <script>
-  
             $(document).ready(function() {
                 $("#login-button").click(function(){
                     $("#login-form").dialog({title : "Login Form", modal : true});
@@ -66,6 +74,13 @@
                     changeMonth: true,
                     changeYear: true
                     });
+                $(".animated").dialog();
+                $("#yes").click(function(){
+                    $(".animated").effect("bounce",{}, 1500);
+                    });
+                $("#no").click(function(){
+                    $(".animated").effect("shake",{}, 2000, function () {alert("Completed")});
+                    });                
             });
         </script>
     </body>
